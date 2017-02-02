@@ -13,6 +13,11 @@ namespace Hametuha\HametWoo\Utility;
  */
 trait Tools {
 
+	/**
+	 * Version of HametWoo.
+	 *
+	 * @var string
+	 */
 	protected $version = '0.8.0';
 
 	/**

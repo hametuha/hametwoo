@@ -41,7 +41,7 @@ abstract class Updater extends Singleton {
 	/**
 	 * Initializer
 	 *
-	 * @param string $current_version
+	 * @param string $current_version Version of plugin.
 	 */
 	public static function init( $current_version ) {
 		$instance = static::get_instance();
@@ -236,7 +236,7 @@ abstract class Updater extends Singleton {
 	public function __get( $name ) {
 		switch ( $name ) {
 			case 'cache_key':
-				return 'hametwoo_'.strtolower( str_replace( '\\', '_', get_called_class() ) );
+				return 'hametwoo_' . strtolower( str_replace( '\\', '_', get_called_class() ) );
 				break;
 			default:
 				return parent::__get( $name );
