@@ -1,6 +1,6 @@
 <?php
 
-namespace Hametuha\HametWoo\GateWay\WebPay\Utility;
+namespace Hametuha\HametWoo\Utility;
 
 /**
  * Compatibility detector of WooCommerce
@@ -33,7 +33,7 @@ class Compatibility {
 	 *
 	 * @return bool
 	 */
-	public function has_woo() {
+	public static function has_woo() {
 		return class_exists( 'WooCommerce' );
 	}
 
@@ -56,7 +56,7 @@ class Compatibility {
 	 */
 	public static function satisfies( $required_version, $operator = '>=' ) {
 		$current_version = self::woo_version();
-		return (bool) version_compare( $current_version, $required_version, $operator );
+		return (bool) version_compare( $required_version, $required_version, $operator );
 	}
 
 	/**

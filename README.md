@@ -1,6 +1,8 @@
 # hametwoo
 A utility classes for WooCommerce development.
 
+[![Build Status](https://travis-ci.org/hametuha/hametwoo.svg)](https://travis-ci.org/hametuha/hametwoo)
+
 ## How to Use
 
 Include via composer. In your compsoer.json:

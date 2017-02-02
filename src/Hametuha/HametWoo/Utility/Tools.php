@@ -22,7 +22,7 @@ trait Tools {
 	 *
 	 * @return array
 	 */
-	protected function convert_expiry( $string ) {
+	public function convert_expiry( $string ) {
 		return array_map( function ( $var ) {
 			return trim( $var );
 		}, explode( '/', $string ) );

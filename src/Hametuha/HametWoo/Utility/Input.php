@@ -14,6 +14,13 @@ use Hametuha\HametWoo\Pattern\Singleton;
 class Input extends Singleton {
 
 	/**
+	 * PHP input name for unit test.
+	 *
+	 * @var string
+	 */
+	public $stdin = 'php://input';
+
+	/**
 	 * Returns $_GET.
 	 *
 	 * @param string $key Key name of $_REQUEST.
@@ -55,7 +62,7 @@ class Input extends Singleton {
 	 * @return string
 	 */
 	public function input() {
-		return file_get_contents( 'php://input' );
+		return file_get_contents( $this->stdin );
 	}
 
 	/**
