@@ -10,7 +10,7 @@ Include via composer. In your compsoer.json:
 ```
 {
   "require": {
-    "hametuha/hametwoo": "~4.8"
+    "hametuha/hametwoo": "~0.8"
   }
 }
 ```
