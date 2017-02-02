@@ -32,7 +32,7 @@ class UtilityTest extends WP_UnitTestCase {
 	function test_tool() {
 		$tool = new ConcreteTool();
 		$this->assertInstanceOf( 'wpdb', $tool->db );
-		$this->assertInstanceOf( \Hametuha\HametWoo\Utility\Input::class, $tool->input );
+		$this->assertInstanceOf( '\\Hametuha\\HametWoo\\Utility\\Input', $tool->input );
 		// Credit card expiry.
 		$expiry_is = ' 07 / 18 ';
 		$expiry_should = [ '07', '18' ];
