@@ -66,11 +66,12 @@ class UtilityTest extends WP_UnitTestCase {
 	 * Check compatibility
 	 */
 	function test_compatibility() {
-		$this->assertEquals( '0.0.0', Compatibility::woo_version() );
-		$this->assertFalse( Compatibility::has_woo() );
+		// Check if version is bigger than 2.6.0
+		$this->assertNotEquals( '0.0.0', Compatibility::woo_version() );
+		$this->assertTrue( Compatibility::has_woo() );
 		$this->assertFalse( Compatibility::subscription_available() );
-		$this->assertTrue( Compatibility::satisfies( '1.0.0' ) );
-		$this->assertEmpty( Compatibility::get_currency() );
-		$this->assertTrue( Compatibility::check_currency( '' ) );
+		$this->assertTrue( Compatibility::satisfies( '2.6.0' ) );
+		$this->assertEquals( 'GBP', Compatibility::get_currency() );
+		$this->assertTrue( Compatibility::check_currency( 'GBP' ) );
 	}
 }

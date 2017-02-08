@@ -65,6 +65,7 @@ install_wp() {
 	fi
 
 	download https://raw.github.com/markoheijnen/wp-mysqli/master/db.php $WP_CORE_DIR/wp-content/db.php
+	svn co --quiet https://plugins.svn.wordpress.org/woocommerce/trunk/ $WP_CORE_DIR/wp-content/plugins/woocommerce/
 }
 
 install_test_suite() {
