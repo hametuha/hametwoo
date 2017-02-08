@@ -34,18 +34,18 @@ trait Tools {
 	}
 
 	/**
-	 * Get card icon URL
+	 * Get card icon URL.
 	 *
 	 * @return array
 	 */
 	public function card_icons() {
 		$icons = [];
-		$base_url = WC()->plugin_url().'/assets/images/icons/credit-cards/';
-		$base_dir = WC()->plugin_path().'/assets/images/icons/credit-cards/';
+		$base_url = WC()->plugin_url() . '/assets/images/icons/credit-cards/';
+		$base_dir = WC()->plugin_path() . '/assets/images/icons/credit-cards/';
 		if ( is_dir( $base_dir ) ) {
 			foreach ( scandir( $base_dir ) as $icon ) {
 				if ( preg_match( '#(.*)\.svg$#', $icon, $matches ) ) {
-					$icons[$matches[1]] = $base_url . $icon;
+					$icons[ $matches[1] ] = $base_url . $icon;
 				}
 			}
 		}
@@ -55,7 +55,7 @@ trait Tools {
 	/**
 	 * Get style sheet for card input.
 	 *
-	 * @param string $selector
+	 * @param string $selector CSS selector name. Default '.wc-credit-card-form-card-number'.
 	 *
 	 * @return string
 	 */
