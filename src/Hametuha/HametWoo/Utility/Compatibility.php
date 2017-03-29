@@ -23,9 +23,7 @@ class Compatibility {
 	 * @return string
 	 */
 	public static function woo_version() {
-		/* @var \WooCommerce $woocommerce */
-		global $woocommerce;
-		return isset( $woocommerce->version ) ? $woocommerce->version : '0.0.0';
+		return self::has_woo() ? WC()->version : '0.0.0';
 	}
 
 	/**
@@ -56,7 +54,33 @@ class Compatibility {
 	 */
 	public static function satisfies( $required_version, $operator = '>=' ) {
 		$current_version = self::woo_version();
-		return (bool) version_compare( $required_version, $required_version, $operator );
+		return (bool) version_compare( $current_version, $required_version, $operator );
+	}
+
+	/**
+	 * Check dependency for active plugins.
+	 *
+	 * @param array $plugin_file_array Plugin file name.
+	 *
+	 * @return bool
+	 */
+	public static function check_dependency( $plugin_file_array ) {
+		$plugins = (array) get_option( 'active_plugins' );
+		foreach ( (array) $plugin_file_array as $file ) {
+			$found = false;
+			foreach ( $plugins as $plugin ) {
+				if ( false !== strpos( $plugin, $file ) ) {
+					$found = true;
+					break;
+				}
+			}
+			// This plugin is not found.
+			// So, check failed.
+			if ( ! $found ) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**

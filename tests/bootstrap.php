@@ -17,11 +17,11 @@ require_once $_tests_dir . '/includes/functions.php';
  * Manually load the plugin being tested.
  */
 function _manually_load_plugin() {
-	// Activate WooCommerce
+	// Activate WooCommerce.
 	$plugins_to_active = get_option( 'active_plugins', [] );
 	$plugins_to_active[] = 'woocommerce/woocommerce.php';
 	update_option( 'active_plugins', $plugins_to_active );
-	// Auto Loader
+	// Auto Loader.
 	$base = dirname( dirname( __FILE__ ) );
 	require_once $base . '/vendor/autoload.php';
 	// Test classes.

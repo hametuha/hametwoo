@@ -10,6 +10,7 @@ namespace Hametuha\HametWoo\Utility;
  * @property-read \wpdb  $db
  * @property-read array  $option
  * @property-read Input  $input
+ * @property-read string $id
  */
 trait Tools {
 
@@ -31,6 +32,29 @@ trait Tools {
 		return array_map( function ( $var ) {
 			return trim( $var );
 		}, explode( '/', $string ) );
+	}
+
+	/**
+	 * Convert string into numerals.
+	 *
+	 * @param string $string String to be numerals. e.g. CC number.
+	 *
+	 * @return string
+	 */
+	public function quantize( $string ) {
+		return preg_replace( '/\\D/', '', $string );
+	}
+
+	/**
+	 *
+	 *
+	 * @param string $key
+	 *
+	 * @return null|string
+	 */
+	protected function post_data( $key ) {
+		$key = "{$this->id}-{$key}";
+		return $this->input->post( $key );
 	}
 
 	/**
