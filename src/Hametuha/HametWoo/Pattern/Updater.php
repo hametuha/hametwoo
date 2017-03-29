@@ -183,7 +183,7 @@ abstract class Updater extends Singleton {
 			$update_data['counts']['plugins']++;
 			$update_data['counts']['total']++;
 			$titles['plugins'] = sprintf(
-				_n( '%d Plugin Update', '%d Plugin Updates', $update_data['counts']['plugins'] ),
+				_n( '%d Plugin Update', '%d Plugin Updates', $update_data['counts']['plugins'], 'hametwoo' ),
 				$update_data['counts']['plugins']
 			);
 			$update_data['title'] = esc_attr( implode( ', ', $titles ) );

@@ -43,6 +43,8 @@ class UtilityTest extends WP_UnitTestCase {
 		// Check quantize.
 		$cc_no = '0000 0000 0000 0000';
 		$this->assertEquals( $tool->quantize( $cc_no ), '0000000000000000' );
+		// Check product works.
+		$this->assertEquals( $tool->get_all_products_in( 10 ), [] );
 	}
 
 	/**

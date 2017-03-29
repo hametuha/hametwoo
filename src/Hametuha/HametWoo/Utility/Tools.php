@@ -46,9 +46,48 @@ trait Tools {
 	}
 
 	/**
+	 * Detect if order has shipping product
 	 *
+	 * @param int|\WC_Order|\stdClass $order Order object.
 	 *
-	 * @param string $key
+	 * @since 0.8.3
+	 * @return bool
+	 */
+	public function has_shipping( $order ) {
+		$virtual = true;
+		foreach ( $this->get_all_products_in( $order ) as $product ) {
+			/* @var \WC_Product $product */
+			if ( ! $product->is_virtual() ) {
+				$virtual = false;
+				break;
+			}
+		}
+		return ! $virtual;
+	}
+
+	/**
+	 * Get all product in order
+	 *
+	 * @param int|\WC_Order|\stdClass $order Order object.
+	 *
+	 * @since 0.8.3
+	 * @return array
+	 */
+	public function get_all_products_in( $order ) {
+		if ( ! ( $order = wc_get_order( $order ) ) ) {
+			return [];
+		}
+		$products = [];
+		foreach ( $order->get_items() as $item ) {
+			$products[] = $order->get_product_from_item( $item );
+		}
+		return $products;
+	}
+
+	/**
+	 * Get $_POST data
+	 *
+	 * @param string $key Key name without product.
 	 *
 	 * @return null|string
 	 */
