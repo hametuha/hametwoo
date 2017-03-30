@@ -23,6 +23,10 @@ GPL 3.0 and later.
 
 ## Change Log
 
+### 0.8.4
+
+- Add custom email for cancellation.
+
 ### 0.8.2
 
 - Add dependency check `Compatibility::check_dependency( $plugin_files_array )`.

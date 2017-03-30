@@ -74,7 +74,8 @@ trait Tools {
 	 * @return array
 	 */
 	public function get_all_products_in( $order ) {
-		if ( ! ( $order = wc_get_order( $order ) ) ) {
+		$order = wc_get_order( $order );
+		if ( ! $order ) {
 			return [];
 		}
 		$products = [];
