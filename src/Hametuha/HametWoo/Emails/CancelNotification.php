@@ -6,9 +6,21 @@ use Hametuha\HametWoo;
 /**
  * Cancel notification mail
  *
+ * @since 0.8.4
  * @package Hametuha\HametWoo\Emails
  */
 class CancelNotification extends \WC_Email {
+
+	/**
+	 * Detect if this is enabled.
+	 *
+	 * @return bool
+	 */
+	public function is_enabled() {
+		// IF this is not explicitly disabled, always true.
+		$disabled = 'no' === $this->enabled;
+		return apply_filters( 'woocommerce_email_enabled_' . $this->id, ! $disabled, $this->object );
+	}
 
 	/**
 	 * Mail Constructor
@@ -25,6 +37,7 @@ class CancelNotification extends \WC_Email {
 		$this->template_base  = HametWoo::root_dir() . '/templates/';
 		add_action( 'woocommerce_order_status_pending_to_cancelled_notification', array( $this, 'trigger' ) );
 		add_action( 'woocommerce_order_status_on-hold_to_cancelled_notification', array( $this, 'trigger' ) );
+		add_action( 'woocommerce_order_status_processing_to_cancelled_notification', array( $this, 'trigger' ) );
 		// Call constructor.
 		parent::__construct();
 		// Add resend action.
@@ -55,7 +68,7 @@ class CancelNotification extends \WC_Email {
 		}
 		$reason = get_post_meta( $order->id, '_hametwoo_cancel_reason', true );
 		if ( ! $reason ) {
-			// Don't sent with no reason.
+			// Don't send with no reason.
 			return;
 		}
 		$this->object = $order;
