@@ -10,6 +10,7 @@ final class HametWoo {
 
 	/**
 	 * This instance.
+	 *
 	 * @var self
 	 */
 	private static $instance = null;

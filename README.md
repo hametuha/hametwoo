@@ -23,6 +23,10 @@ GPL 3.0 and later.
 
 ## Change Log
 
+### 0.8.5
+
+- Fix custom email to automatically fired.
+
 ### 0.8.4
 
 - Add custom email for cancellation.

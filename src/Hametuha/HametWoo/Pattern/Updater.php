@@ -183,6 +183,7 @@ abstract class Updater extends Singleton {
 			$update_data['counts']['plugins']++;
 			$update_data['counts']['total']++;
 			$titles['plugins'] = sprintf(
+				/* translators: %d: Count of plugins to update */
 				_n( '%d Plugin Update', '%d Plugin Updates', $update_data['counts']['plugins'], 'hametwoo' ),
 				$update_data['counts']['plugins']
 			);
@@ -199,7 +200,7 @@ abstract class Updater extends Singleton {
 	 * @param array  $plugin_data File header array.
 	 * @param string $context     'All', 'Active',
 	 *                            'Inactive', 'Recently Activated', 'Upgrade',
-	 *                            'Must-Use', 'Drop-ins', 'Search'
+	 *                            'Must-Use', 'Drop-ins', 'Search'.
 	 * @return array
 	 */
 	public function plugin_action_links( $actions, $plugin_file, $plugin_data, $context ) {
