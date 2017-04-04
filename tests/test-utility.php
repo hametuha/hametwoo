@@ -84,4 +84,14 @@ class UtilityTest extends WP_UnitTestCase {
 		$this->assertTrue( Compatibility::check_dependency( [ 'woocommerce.php' ] ) );
 		$this->assertFalse( Compatibility::check_dependency( [ 'not-existing/plugin.php' ] ) );
 	}
+
+	/**
+	 * Check if unique id is really unique.
+	 */
+	function test_unique_id() {
+		$id = \Hametuha\HametWoo\Utility\UniqueId::generate( 18 );
+		$another_id = \Hametuha\HametWoo\Utility\UniqueId::generate( 18 );
+		$this->assertNotEquals( $id, $another_id );
+		$this->assertEquals( 36, strlen( $id ) );
+	}
 }
