@@ -16,7 +16,6 @@ php:
 
 env:
   - WP_VERSION=latest WP_MULTISITE=0
-  - WP_VERSION=4.6.1 WP_MULTISITE=0
   - WP_VERSION=4.7.2 WP_MULTISITE=0
 
 before_script:
@@ -29,10 +28,7 @@ before_script:
       composer global require "phpunit/phpunit=4.8.*"
     fi
   - |
-    composer global require wp-coding-standards/wpcs
-    phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
 
 script:
-  - phpcs --standard=phpcs.ruleset.xml $(find ./src -name '*.php')
   - composer install --no-dev
   - phpunit
