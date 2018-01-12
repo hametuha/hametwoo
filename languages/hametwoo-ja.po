@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: HametWoo\n"
-"POT-Creation-Date: 2017-03-30 20:45+0900\n"
-"PO-Revision-Date: 2017-03-30 20:46+0900\n"
+"POT-Creation-Date: 2018-01-12 19:31+0900\n"
+"PO-Revision-Date: 2018-01-12 19:31+0900\n"
 "Last-Translator: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
 "Language-Team: Hametuha INC.\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -21,28 +21,33 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: tests\n"
 "X-Poedit-SearchPathExcluded-2: bin\n"
 
-#: src/Hametuha/HametWoo/Emails/CancelNotification.php:19
+#: src/Hametuha/HametWoo/Emails/CancelNotification.php:31
 msgid "Order Cancel Notification"
 msgstr "注文キャンセルのお知らせ"
 
-#: src/Hametuha/HametWoo/Emails/CancelNotification.php:20
+#: src/Hametuha/HametWoo/Emails/CancelNotification.php:32
 msgid ""
 "Send notification email to customer if the order is automatically cancelled."
 msgstr ""
 "注文が自動的にキャンセルになった場合、お客様にお知らせメールを送信します。"
 
-#: src/Hametuha/HametWoo/Emails/CancelNotification.php:21
+#: src/Hametuha/HametWoo/Emails/CancelNotification.php:33
 msgid "Order Cancelled"
 msgstr "注文のキャンセル"
 
-#: src/Hametuha/HametWoo/Emails/CancelNotification.php:22
+#: src/Hametuha/HametWoo/Emails/CancelNotification.php:34
 msgid "Your order #{order_number} has been cancelled at {order_date}"
 msgstr "お客様のご注文 #{order_number} は {order_date} にキャンセルされました"
 
-#: src/Hametuha/HametWoo/Pattern/Updater.php:186
+#: src/Hametuha/HametWoo/Pattern/Updater.php:187
 #, php-format
 msgid "%d Plugin Update"
 msgstr "%d プラグインが更新"
+
+#: src/Hametuha/HametWoo/Utility/OrderHandler.php:48
+#, php-format
+msgid "%1$s stock increased from %2$d to %3$d."
+msgstr "%1$s の在庫が %2$d から %3$d に増えました。"
 
 #: templates/emails/customer-cancel-notification.php:23
 #: templates/emails/plain/customer-cancel-notification.php:21
