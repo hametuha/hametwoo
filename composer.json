@@ -2,7 +2,7 @@
     "name": "hametuha/hametwoo",
     "description": "A utility classes for WooCommerce development",
     "type": "library",
-    "license": "GPLv3+",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "fumikito",
