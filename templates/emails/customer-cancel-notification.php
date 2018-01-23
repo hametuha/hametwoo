@@ -10,6 +10,7 @@
  * @var bool     $sent_to_admin
  * @var bool     $plain_text
  */
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -20,14 +21,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 	<p>
-		<?php printf( _x( 'Dear %s,', 'mail', 'hametwoo' ), $order->get_formatted_shipping_full_name() ); ?>
+		<?php
+		// translators: %s Customer name.
+		esc_html( sprintf( __( 'Dear %s,', 'hametwoo' ), $order->get_formatted_billing_full_name() ) );
+		?>
 	</p>
 
 	<p>
-		<?php printf( __( 'Your order #%d has been automatically cancelled.', 'hametwoo' ), $order->get_order_number() ); ?>
+		<?php
+		// translators: %d order id.
+		esc_html( sprintf( __( 'Your order #%d has been automatically cancelled.', 'hametwoo' ), $order->get_order_number() ) );
+		?>
 	</p>
 
-	<?php if ( $reason = get_post_meta( $order->id, '_hametwoo_cancel_reason', true ) ) : ?>
+	<?php if ( $reason = get_post_meta( $order->get_id(), '_hametwoo_cancel_reason', true ) ) : ?>
 	<p>
 		<strong><?php esc_html_e( 'Reason:', 'hametwoo' ) ?></strong><br />
 		<?php echo esc_html( $reason ) ?>

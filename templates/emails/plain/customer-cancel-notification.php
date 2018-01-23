@@ -17,11 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 echo "= " . $email_heading . " =\n\n";
 
+printf( __( 'Dear %s,', 'hametwoo' ), $order->get_formatted_billing_full_name() ). "\n";
+printf( __( 'Your order #%d has been automatically cancelled.', 'hametwoo' ), $order->get_order_number() )."\n\n";
 
-echo sprintf( _x( 'Dear %s,', 'mail', 'hametwoo' ), $order->get_formatted_shipping_full_name() ). "\n";
-echo sprintf( __( 'Your order #%d has been automatically cancelled.', 'hametwoo' ), $order->get_order_number() )."\n\n";
-
-if ( $reason = get_post_meta( $order->id, '_hametwoo_cancel_reason', true ) ) {
+if ( $reason = get_post_meta( $order->get_id(), '_hametwoo_cancel_reason', true ) ) {
 	esc_html_e( 'Reason:', 'hametwoo' );
 	echo "\n" . esc_html( $reason ) . "\n\n";
 }

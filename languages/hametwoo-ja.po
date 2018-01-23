@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: HametWoo\n"
-"POT-Creation-Date: 2018-01-12 19:31+0900\n"
-"PO-Revision-Date: 2018-01-12 19:31+0900\n"
+"POT-Creation-Date: 2018-01-23 20:47+0900\n"
+"PO-Revision-Date: 2018-01-23 20:48+0900\n"
 "Last-Translator: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
 "Language-Team: Hametuha INC.\n"
 "Language: ja\n"
@@ -20,6 +20,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 "X-Poedit-SearchPathExcluded-1: tests\n"
 "X-Poedit-SearchPathExcluded-2: bin\n"
+"X-Poedit-SearchPathExcluded-3: languages\n"
 
 #: src/Hametuha/HametWoo/Emails/CancelNotification.php:31
 msgid "Order Cancel Notification"
@@ -49,19 +50,19 @@ msgstr "%d プラグインが更新"
 msgid "%1$s stock increased from %2$d to %3$d."
 msgstr "%1$s の在庫が %2$d から %3$d に増えました。"
 
-#: templates/emails/customer-cancel-notification.php:23
-#: templates/emails/plain/customer-cancel-notification.php:21
+#: templates/emails/customer-cancel-notification.php:26
+#: templates/emails/plain/customer-cancel-notification.php:20
 #, php-format
 msgid "Dear %s,"
 msgstr "%s 様"
 
-#: templates/emails/customer-cancel-notification.php:27
-#: templates/emails/plain/customer-cancel-notification.php:22
+#: templates/emails/customer-cancel-notification.php:33
+#: templates/emails/plain/customer-cancel-notification.php:21
 #, php-format
 msgid "Your order #%d has been automatically cancelled."
 msgstr "お客様のご注文 ＃%d は自動的にキャンセルされました。"
 
-#: templates/emails/customer-cancel-notification.php:32
-#: templates/emails/plain/customer-cancel-notification.php:25
+#: templates/emails/customer-cancel-notification.php:39
+#: templates/emails/plain/customer-cancel-notification.php:24
 msgid "Reason:"
 msgstr "理由:"
