@@ -23,14 +23,14 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 	<p>
 		<?php
 		// translators: %s Customer name.
-		esc_html( sprintf( __( 'Dear %s,', 'hametwoo' ), $order->get_formatted_billing_full_name() ) );
+		echo esc_html( sprintf( __( 'Dear %s,', 'hametwoo' ), $order->get_formatted_billing_full_name() ) );
 		?>
 	</p>
 
 	<p>
 		<?php
 		// translators: %d order id.
-		esc_html( sprintf( __( 'Your order #%d has been automatically cancelled.', 'hametwoo' ), $order->get_order_number() ) );
+		echo esc_html( sprintf( __( 'Your order #%d has been automatically cancelled.', 'hametwoo' ), $order->get_order_number() ) );
 		?>
 	</p>
 
