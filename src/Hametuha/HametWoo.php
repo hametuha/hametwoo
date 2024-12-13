@@ -37,7 +37,7 @@ final class HametWoo {
 	 */
 	public function template_fallback( $template, $template_name, $template_path ) {
 		if ( ! file_exists( $template ) ) {
-			// Woops, no template. Does hametwoo has it?
+			// Woops, no template. Does hametwoo have it?
 			$fallback = self::root_dir() . '/templates/' . $template_name;
 			if ( file_exists( $fallback ) ) {
 				$template = $fallback;
@@ -74,7 +74,6 @@ final class HametWoo {
 			}
 		}
 	}
-
 
 	/**
 	 * Initializer

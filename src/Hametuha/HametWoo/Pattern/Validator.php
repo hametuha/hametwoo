@@ -5,7 +5,7 @@ namespace Hametuha\HametWoo\Pattern;
 /**
  * Validate set of test.
  *
- * To validate a set of conditions, extends this classs
+ * To validate a set of conditions, extends this class
  * and implement public methods which starts with 'test_' prefix.
  *
  * ```

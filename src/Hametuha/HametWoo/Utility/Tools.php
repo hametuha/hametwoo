@@ -80,7 +80,7 @@ trait Tools {
 		}
 		$products = [];
 		foreach ( $order->get_items() as $item ) {
-			$products[] = $order->get_product_from_item( $item );
+			$products[] = $item->get_product();
 		}
 		return $products;
 	}

@@ -66,7 +66,7 @@ class CancelNotification extends \WC_Email {
 		if ( ! $order || ! $this->is_enabled() ) {
 			return;
 		}
-		$reason = get_post_meta( $order->id, '_hametwoo_cancel_reason', true );
+		$reason = $order->get_meta( '_hametwoo_cancel_reason' );
 		if ( ! $reason ) {
 			// Don't send with no reason.
 			return;
