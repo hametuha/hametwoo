@@ -1,21 +1,62 @@
 # hametwoo
+
 A utility classes for WooCommerce development.
 
 [![Build Status](https://travis-ci.org/hametuha/hametwoo.svg)](https://travis-ci.org/hametuha/hametwoo)
 
 ## How to Use
 
-Include via composer. In your compsoer.json:
+Include via composer. In your composer.json:
 
 ```
 {
   "require": {
-    "hametuha/hametwoo": "~0.8"
+    "hametuha/hametwoo": "~0.9"
   }
 }
 ```
 
 This library is useful for making Payment Gateways.
+
+## Development
+
+Composer, Node.js, and Docker are required. At first, clone GitHub repository.
+
+```
+git clone git@github.com:hametuha/hametwoo.git
+```
+
+Then install dependencies.
+
+```
+composer install
+npm install
+```
+
+Run local environment.
+
+```
+npm start
+```
+
+Run test.
+
+```
+# PHP Unit test in Docker.
+npm test
+# PHP Code Sniffer
+composer lint
+# PHP Code Beautifier
+composer format
+```
+
+To enable mailhog for debug, follow the instruction below.
+
+```
+# Get docker container ID.
+# Notice: run npm start before this step.
+npm run path
+# You will get container ID at the .
 
 ## License
 

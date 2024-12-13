@@ -1,0 +1,39 @@
+{
+  "name": "hametwoo",
+  "version": "1.0.0",
+  "description": "A utility classes for WooCommerce development.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+	  "start": "wp-env start",
+	  "update": "docker compose down && wp-env start --update",
+	  "stop": "docker compose down && wp-env stop",
+	  "env": "wp-env",
+	  "path": "wp-env install-path",
+	  "cli": "wp-env run cli wp",
+	  "cli:test": "wp-env run tests-cli wp",
+	  "test": "RESULT=${PWD##*/} && wp-env run tests-cli ./wp-content/plugins/$RESULT/vendor/bin/phpunit -c ./wp-content/plugins/$RESULT/phpunit.xml.dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hametuha/hametwoo.git"
+  },
+  "keywords": [
+    "wordpress",
+    "woocommerce"
+  ],
+  "author": "Hametuha INC <info@hametuha.co.jp>",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/hametuha/hametwoo/issues"
+  },
+  "homepage": "https://github.com/hametuha/hametwoo#readme",
+  "volta": {
+    "node": "18.20.5"
+  },
+  "devDependencies": {
+    "@wordpress/env": "^10.14.0"
+  }
+}
