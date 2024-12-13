@@ -15,5 +15,4 @@ abstract class AbstractMaster {
 	final private function __construct() {
 		// Do nothing.
 	}
-
 }

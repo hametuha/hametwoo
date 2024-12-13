@@ -80,7 +80,7 @@ trait Tools {
 		}
 		$products = [];
 		foreach ( $order->get_items() as $item ) {
-			$products[] = $order->get_product_from_item( $item );
+			$products[] = $item->get_product();
 		}
 		return $products;
 	}
@@ -103,7 +103,7 @@ trait Tools {
 	 * @return array
 	 */
 	public function card_icons() {
-		$icons = [];
+		$icons    = [];
 		$base_url = WC()->plugin_url() . '/assets/images/icons/credit-cards/';
 		$base_dir = WC()->plugin_path() . '/assets/images/icons/credit-cards/';
 		if ( is_dir( $base_dir ) ) {
@@ -140,7 +140,6 @@ CSS;
 CSS;
 		}
 		return sprintf( '<style type="text/css">%s</style>', $css );
-
 	}
 
 	/**
@@ -164,5 +163,4 @@ CSS;
 				break;
 		}
 	}
-
 }

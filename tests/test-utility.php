@@ -15,7 +15,7 @@ class UtilityTest extends WP_UnitTestCase {
 	/**
 	 * Setup global variables.
 	 */
-	function setUp() {
+	public function setUp():void {
 		parent::setUp();
 		$_GET = [
 			'foo' => 'var',
@@ -78,15 +78,15 @@ class UtilityTest extends WP_UnitTestCase {
 		$this->assertNotEquals( '0.0.0', Compatibility::woo_version() );
 		$this->assertTrue( Compatibility::has_woo() );
 		$this->assertFalse( Compatibility::subscription_available() );
-		$this->assertTrue( Compatibility::satisfies( '2.6.0' ) );
-		$this->assertEquals( 'GBP', Compatibility::get_currency() );
-		$this->assertTrue( Compatibility::check_currency( 'GBP' ) );
+		$this->assertTrue( Compatibility::satisfies( '7.0.0' ) );
+		$this->assertEquals( 'USD', Compatibility::get_currency() );
+		$this->assertTrue( Compatibility::check_currency( 'USD' ) );
 		$this->assertTrue( Compatibility::check_dependency( [ 'woocommerce.php' ] ) );
 		$this->assertFalse( Compatibility::check_dependency( [ 'not-existing/plugin.php' ] ) );
 	}
 
 	/**
-	 * Check if unique id is really unique.
+	 * Check if unique id is unique.
 	 */
 	function test_unique_id() {
 		$id = \Hametuha\HametWoo\Utility\UniqueId::generate( 18 );

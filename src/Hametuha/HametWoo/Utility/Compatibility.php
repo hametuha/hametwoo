@@ -101,5 +101,4 @@ class Compatibility {
 	public static function check_currency( $currency ) {
 		return self::get_currency() === $currency;
 	}
-
 }

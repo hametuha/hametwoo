@@ -26,12 +26,12 @@ class CancelNotification extends \WC_Email {
 	 * Mail Constructor
 	 */
 	public function __construct() {
-		$this->id    = 'hametwoo_cancel_notification';
+		$this->id             = 'hametwoo_cancel_notification';
 		$this->customer_email = true;
-		$this->title = __( 'Order Cancel Notification', 'hametwoo' );
-		$this->description = __( 'Send notification email to customer if the order is automatically cancelled.', 'hametwoo' );
-		$this->heading = __( 'Order Cancelled', 'hametwoo' );
-		$this->subject = __( 'Your order #{order_number} has been cancelled at {order_date}', 'hametwoo' );
+		$this->title          = __( 'Order Cancel Notification', 'hametwoo' );
+		$this->description    = __( 'Send notification email to customer if the order is automatically cancelled.', 'hametwoo' );
+		$this->heading        = __( 'Order Cancelled', 'hametwoo' );
+		$this->subject        = __( 'Your order #{order_number} has been cancelled at {order_date}', 'hametwoo' );
 		$this->template_html  = 'emails/customer-cancel-notification.php';
 		$this->template_plain = 'emails/plain/customer-cancel-notification.php';
 		$this->template_base  = HametWoo::root_dir() . '/templates/';
@@ -66,19 +66,19 @@ class CancelNotification extends \WC_Email {
 		if ( ! $order || ! $this->is_enabled() ) {
 			return;
 		}
-		$reason = get_post_meta( $order->id, '_hametwoo_cancel_reason', true );
+		$reason = $order->get_meta( '_hametwoo_cancel_reason' );
 		if ( ! $reason ) {
 			// Don't send with no reason.
 			return;
 		}
-		$this->object = $order;
+		$this->object    = $order;
 		$this->recipient = $this->object->billing_email;
 		// Is html?
 		foreach ( [
 			'order_number' => $order->get_order_number(),
-		    'order_date'   => date_i18n( get_option( 'date_format' ) ),
+			'order_date'   => date_i18n( get_option( 'date_format' ) ),
 		] as $find => $result ) {
-			$this->find[ $find ] = "{{$find}}";
+			$this->find[ $find ]    = "{{$find}}";
 			$this->replace[ $find ] = $result;
 		}
 		$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
@@ -96,7 +96,7 @@ class CancelNotification extends \WC_Email {
 			'email_heading' => $this->get_heading(),
 			'sent_to_admin' => false,
 			'plain_text'    => false,
-			'email'			=> $this,
+			'email'         => $this,
 		] );
 	}
 
@@ -112,7 +112,7 @@ class CancelNotification extends \WC_Email {
 			'email_heading' => $this->get_heading(),
 			'sent_to_admin' => false,
 			'plain_text'    => true,
-			'email'			=> $this,
+			'email'         => $this,
 		] );
 	}
 }

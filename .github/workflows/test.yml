@@ -1,0 +1,51 @@
+name: CI/CD
+
+on:
+  pull_request:
+    branches:
+      - master
+jobs:
+#  WordPress.org が治ったらもどす
+#  test:
+#    name: PHP Unit Test
+#    strategy:
+#      matrix:
+#        php: [ '8.2' ] #PHP versions to check.
+#        wp: [ 'latest' ] # WordPress version to check.
+#    uses: tarosky/workflows/.github/workflows/wp-unit-test.yml@main
+#    with:
+#      php_version: ${{ matrix.php }}
+#      wp_version: ${{ matrix.wp }}
+
+  lint:
+    name: PHP Syntax compatibility check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Composer
+        run: composer install --no-interaction --no-progress --optimize-autoloader
+
+      - name: Run PHP Lint
+        run: composer lint
+
+  short-open-tag:
+    uses: tarosky/workflows/.github/workflows/php-short-open-tag.yml@main
+
+  status-check:
+    name: Status Check
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [ short-open-tag, lint ]
+    steps:
+      - uses: re-actors/alls-green@release/v1
+        with:
+          jobs: ${{ toJSON(needs) }}

@@ -113,5 +113,4 @@ abstract class Tab extends Singleton {
 
 		return $vars;
 	}
-
 }

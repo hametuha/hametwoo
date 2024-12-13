@@ -34,10 +34,13 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 		?>
 	</p>
 
-	<?php if ( $reason = get_post_meta( $order->get_id(), '_hametwoo_cancel_reason', true ) ) : ?>
+	<?php
+	$reason = $order->get_meta( '_hametwoo_cancel_reason' );
+	if ( $reason ) :
+		?>
 	<p>
-		<strong><?php esc_html_e( 'Reason:', 'hametwoo' ) ?></strong><br />
-		<?php echo esc_html( $reason ) ?>
+		<strong><?php esc_html_e( 'Reason:', 'hametwoo' ); ?></strong><br />
+		<?php echo esc_html( $reason ); ?>
 	</p>
 	<?php endif; ?>
 
