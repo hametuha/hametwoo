@@ -1,6 +1,7 @@
 .DS_Store
 Thumbs.db
 wp-cli.local.yml
+composer.lock
 /node_modules/
 /vendor/
 /wordpress/
