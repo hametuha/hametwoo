@@ -31,14 +31,14 @@ class OrderHandler {
 		$restored = false;
 		foreach ( $order->get_items( 'line_item' ) as $item ) {
 			/* @var \WC_Order_Item_Product $item Order item. */
-			$qty = $item->get_quantity();
+			$qty     = $item->get_quantity();
 			$product = $item->get_product();
 			if ( ! $qty || ! $product || ! $product->managing_stock() ) {
 				continue;
 			}
-			$name = $product->get_formatted_name();
+			$name          = $product->get_formatted_name();
 			$current_stock = $product->get_stock_quantity();
-			$new_stock = wc_update_product_stock( $product, $qty, 'increase' );
+			$new_stock     = wc_update_product_stock( $product, $qty, 'increase' );
 			if ( ! $new_stock ) {
 				// Oops, failed to update stock.
 				continue;

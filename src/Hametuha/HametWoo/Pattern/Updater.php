@@ -44,7 +44,7 @@ abstract class Updater extends Singleton {
 	 * @param string $current_version Version of plugin.
 	 */
 	public static function init( $current_version ) {
-		$instance = static::get_instance();
+		$instance                  = static::get_instance();
 		$instance->current_version = $current_version;
 	}
 
@@ -106,12 +106,12 @@ abstract class Updater extends Singleton {
 	 * @return object
 	 */
 	protected function remote_get_version() {
-		$key = $this->cache_key;
+		$key     = $this->cache_key;
 		$version = get_site_transient( $key );
 		if ( false !== $version ) {
 			return $version;
 		}
-		$url = $this->timestamped_endpoint( $this->endpoint() );
+		$url      = $this->timestamped_endpoint( $this->endpoint() );
 		$response = wp_remote_get( $url );
 		if ( is_wp_error( $response ) ) {
 			$version = $this->parse_result( $response );
@@ -180,8 +180,8 @@ abstract class Updater extends Singleton {
 	 */
 	public function wp_get_update_data( $update_data, $titles ) {
 		if ( $this->has_update() ) {
-			$update_data['counts']['plugins']++;
-			$update_data['counts']['total']++;
+			++$update_data['counts']['plugins'];
+			++$update_data['counts']['total'];
 			$titles['plugins'] = sprintf(
 				/* translators: %d: Count of plugins to update */
 				_n( '%d Plugin Update', '%d Plugin Updates', $update_data['counts']['plugins'], 'hametwoo' ),

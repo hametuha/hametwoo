@@ -32,7 +32,7 @@ class Validator extends Singleton {
 	 */
 	public static function validate() {
 		$instance = static::get_instance();
-		$error = new \WP_Error();
+		$error    = new \WP_Error();
 		foreach ( get_class_methods( $instance ) as $method ) {
 			$repl = new \ReflectionMethod( get_called_class(), $method );
 			// Check if method is public.
@@ -48,6 +48,6 @@ class Validator extends Singleton {
 				$error->add( $result->get_error_code(), $result->get_error_message() );
 			}
 		}
-		return $error->get_error_messages()? $error : true;
+		return $error->get_error_messages() ? $error : true;
 	}
 }

@@ -56,7 +56,14 @@ To enable mailhog for debug, follow the instruction below.
 # Get docker container ID.
 # Notice: run npm start before this step.
 npm run path
-# You will get container ID at the .
+# You will get container ID at the base name e.g. 0597019337936df00cda1cf5a15016e0
+# Save it as .wp_install_path
+touch .wp_install_path
+echo 0597019337936df00cda1cf5a15016e0 > .wp_install_path
+# Restart docker.
+npm run update
+# Open http://localhost:8025
+```
 
 ## License
 

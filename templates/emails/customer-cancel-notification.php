@@ -36,10 +36,11 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 	<?php
 	$reason = $order->get_meta( '_hametwoo_cancel_reason' );
-	if ( $reason ) : ?>
+	if ( $reason ) :
+		?>
 	<p>
-		<strong><?php esc_html_e( 'Reason:', 'hametwoo' ) ?></strong><br />
-		<?php echo esc_html( $reason ) ?>
+		<strong><?php esc_html_e( 'Reason:', 'hametwoo' ); ?></strong><br />
+		<?php echo esc_html( $reason ); ?>
 	</p>
 	<?php endif; ?>
 

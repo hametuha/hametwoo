@@ -32,7 +32,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Composer
-        run: composer install --no-interaction --no-progress --optimize-autoloader --no-suggest
+        run: composer install --no-interaction --no-progress --optimize-autoloader
 
       - name: Run PHP Lint
         run: composer lint

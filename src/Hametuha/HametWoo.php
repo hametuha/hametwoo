@@ -52,11 +52,11 @@ final class HametWoo {
 	 * @return string
 	 */
 	public static function root_dir() {
-		return dirname( dirname( __DIR__ ) );
+		return dirname( __DIR__, 2 );
 	}
 
 	/**
-	 * Send email short hand.
+	 * Send email shorthand.
 	 *
 	 * @param string $mail_id   Mail ID.
 	 * @param array  $arguments Argument passed to $mailer->trigger.
@@ -65,7 +65,7 @@ final class HametWoo {
 		$mailers = WC()->mailer()->get_emails();
 		foreach ( $mailers as $mailer ) {
 			/* @var \WC_Email $mailer */
-			if ( $mail_id == $mailer->id ) {
+			if ( $mail_id === $mailer->id ) {
 				if ( $arguments ) {
 					call_user_func_array( [ $mailer, 'trigger' ], $arguments );
 				} else {

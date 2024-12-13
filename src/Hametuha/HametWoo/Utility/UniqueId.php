@@ -30,10 +30,10 @@ class UniqueId {
 		} elseif ( function_exists( 'openssl_random_pseudo_bytes' ) ) {
 			return bin2hex( openssl_random_pseudo_bytes( $length ) );
 		} else {
-			$id = uniqid();
-			$hash = '';
+			$id      = uniqid();
+			$hash    = '';
 			$str_len = strlen( $id );
-			$limit = floor( $length * 2 / $str_len );
+			$limit   = floor( $length * 2 / $str_len );
 			for ( $i = 0; $i < $limit; $i++ ) {
 				$hash .= $id;
 			}
